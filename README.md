@@ -1,6 +1,3 @@
-# React test with Fake API 
-
-
 # Build & Run Instructions
 
 1. To build and run the code in this directory, ensure you have [npm](https://www.npmjs.com) installed
