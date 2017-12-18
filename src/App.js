@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from './actions/auth';
 import { fetchPosts } from './actions/posts';
-import { user, posts } from './reducers';
 import './App.css';
 
 class App extends Component {
@@ -16,9 +15,7 @@ class App extends Component {
     const { user, posts } = this.props;
     return (
       <div className="App">
-        <div className="main">
-          {this.props.user.firstName}  {this.props.user.lastName}
-        </div>
+      
       </div>
     );
   }
@@ -26,10 +23,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   const { auth, posts } = state;
-  return {
-    user: state.auth.user,
-    posts: state.posts.postList
-  };
+  return { };
 };
 
 const mapDispatchToProps = { login, fetchPosts };
