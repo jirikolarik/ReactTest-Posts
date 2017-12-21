@@ -1,11 +1,34 @@
+// @flow
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from './actions/auth';
 import { fetchPosts } from './actions/posts';
+import Header from './components/header/header';
+import Posts from './components/posts/posts';
 import './App.css';
 
-class App extends Component {
-  
+type Props = {
+  user: {
+    firstName: string,
+    lastName: string,
+    gender: 'Male' | 'Female',
+    maritalStatus: ?string
+  },
+  posts: {
+    isFetching: boolean,
+    postList: Array<{
+      PostID: number,
+      Id: number,
+      Name: string,
+      Email: string,
+      Body: string
+    }>
+  }
+}
+
+class App extends Component<Props> {
+
   componentDidMount() {
     this.props.login();
     this.props.fetchPosts();
@@ -15,7 +38,8 @@ class App extends Component {
     const { user, posts } = this.props;
     return (
       <div className="App">
-      
+        <Header user={user} />
+        <Posts posts={posts}/>
       </div>
     );
   }
@@ -23,7 +47,10 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   const { auth, posts } = state;
-  return { };
+  return {
+    user: auth && auth.user,
+    posts
+  };
 };
 
 const mapDispatchToProps = { login, fetchPosts };

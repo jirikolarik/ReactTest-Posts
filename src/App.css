@@ -1,7 +1,11 @@
 .App {
-  display: flex;
+  background: white;
   height: 100%;
   border: 1px solid white;
+  padding: 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {

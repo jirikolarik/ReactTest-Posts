@@ -1,6 +1,6 @@
 import { POSTS_REQUEST, POSTS_SUCCESS } from '../constants';
 
-const posts = (state = { list:[] }, action) => {
+const posts = (state = { postList:[] }, action) => {
   switch (action.type) {
     case POSTS_REQUEST:
       return Object.assign({ isFetching: true } ,state);
